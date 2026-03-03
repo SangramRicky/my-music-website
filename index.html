@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Music Website</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .song { margin: 20px; border: 1px solid #ddd; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>My Dynamic Music Website</h1>
+    <div id="music-container"></div>
+
+    <script>
+        // Sample JSON data structure for songs
+        const songs = [
+            { "title": "Song One", "artist": "Artist A", "url": "#" },
+            { "title": "Song Two", "artist": "Artist B", "url": "#" },
+            { "title": "Song Three", "artist": "Artist C", "url": "#" }
+        ];
+
+        const container = document.getElementById('music-container');
+
+        // Function to load songs dynamically
+        function loadSongs() {
+            songs.forEach(song => {
+                const songDiv = document.createElement('div');
+                songDiv.classList.add('song');
+                songDiv.innerHTML = `<h2>${song.title}</h2><p>Artist: ${song.artist}</p><a href="${song.url}">Listen</a>`;
+                container.appendChild(songDiv);
+            });
+        }
+
+        // Load songs on page load
+        window.onload = loadSongs;
+    </script>
+</body>
+</html>
